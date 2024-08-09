@@ -154,7 +154,7 @@ class WorkoutHealthValue extends HealthValue {
       WorkoutHealthValue(
           workoutActivityType: HealthWorkoutActivityType.values.firstWhere(
             (element) => element.name == dataPoint['workoutActivityType'],
-            orElse: HealthWorkoutActivityType.OTHER,
+            orElse: () => HealthWorkoutActivityType.OTHER,
           ),
           totalEnergyBurned: dataPoint['totalEnergyBurned'] != null
               ? (dataPoint['totalEnergyBurned'] as num).toInt()
